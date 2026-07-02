@@ -25,6 +25,14 @@ app.use('/api/products', reviewRoutes)
 app.use('/api/upload', uploadRoutes)
 app.use('/api/landing', landingRoutes)
 
+if (process.env.NODE_ENV === 'production') {
+  const clientDistPath = path.join(__dirname, '../../dist')
+  app.use(express.static(clientDistPath))
+  app.get('*', (_req, res) => {
+    res.sendFile(path.join(clientDistPath, 'index.html'))
+  })
+}
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`)
 })
