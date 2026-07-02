@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+@theme {
+  --color-action-blue: #0066cc;
+  --color-action-blue-focus: #0071e3;
+  --color-sky-link: #2997ff;
+  --color-canvas: #ffffff;
+  --color-parchment: #f5f5f7;
+  --color-pearl: #fafafc;
+  --color-tile-1: #272729;
+  --color-tile-2: #2a2a2c;
+  --color-tile-3: #252527;
+  --color-black-pure: #000000;
+  --color-ink: #1d1d1f;
+  --color-ink-muted-80: #333333;
+  --color-ink-muted-48: #7a7a7a;
+  --color-body-on-dark: #ffffff;
+  --color-body-muted: #cccccc;
+  --color-divider-soft: #f0f0f0;
+  --color-hairline: #e0e0e0;
+  --color-chip-translucent: #d2d2d7;
+
+  --font-display: 'Cormorant Garamond', 'Georgia', serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --spacing-section: 80px;
+
+  --radius-pill: 9999px;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-shimmer: shimmer 2.5s infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  @keyframes shimmer {
+    100% { transform: translateX(100%); }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background-color: var(--color-canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* --- Theme Config via CSS Variables --- */
+body.theme-warm-rose-gold {
+  --color-action-blue: #b07d62;
+  --color-action-blue-focus: #9c684f;
+  --color-sky-link: #d4a373;
+}
+
+body.theme-royal-emerald {
+  --color-action-blue: #1c523c;
+  --color-action-blue-focus: #143d2c;
+  --color-sky-link: #52b788;
+}
+
+/* --- Dynamic Moving Glow Bubbles --- */
+@keyframes floatBubble1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, -80px) scale(1.12); }
+  66% { transform: translate(-30px, 50px) scale(0.95); }
+}
+
+@keyframes floatBubble2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-60px, 80px) scale(1.18); }
+}
+
+@keyframes floatBubble3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(70px, -40px) scale(0.9); }
+}
+
+.animate-bubble-1 {
+  animation: floatBubble1 22s ease-in-out infinite;
+}
+
+.animate-bubble-2 {
+  animation: floatBubble2 28s ease-in-out infinite;
+}
+
+.animate-bubble-3 {
+  animation: floatBubble3 25s ease-in-out infinite;
+}
+
+/* --- Scroll Reveal Animations --- */
+.reveal-on-scroll {
+  /* Animation disabled for initial load - will be visible immediately */
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Pointer-driven 3D cards --- */
+.tilt-card {
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  --glare-x: 50%;
+  --glare-y: 50%;
+  position: relative;
+  transform: perspective(1200px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateZ(0);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.tilt-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    radial-gradient(
+      circle at var(--glare-x) var(--glare-y),
+      rgba(255, 255, 255, 0.42),
+      rgba(255, 255, 255, 0.16) 18%,
+      transparent 42%
+    );
+  opacity: 0;
+  mix-blend-mode: screen;
+  transition: opacity 180ms ease;
+}
+
+.tilt-card.is-tilting {
+  transition: transform 90ms ease-out;
+}
+
+.tilt-card.is-tilting::after {
+  opacity: 1;
+}
+
+.tilt-card.is-tilting > img {
+  transform: translateZ(18px) scale(1.01);
+}
+
+@media (prefers-reduced-motion: reduce), (pointer: coarse) {
+  .tilt-card,
+  .tilt-card.is-tilting > img {
+    transform: none;
+  }
+
+  .tilt-card::after {
+    display: none;
+  }
+}
+
+/* --- Luxury Premium Effects --- */
+@keyframes shimmer {
+  0%, 100% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+@keyframes floatGlow {
+  0%, 100% { filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3)); }
+  50% { filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.5)); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.luxury-shine {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 3s infinite;
+}
+
+.glow-text {
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.3));
+}
+
+.float-glow {
+  animation: floatGlow 3s ease-in-out infinite;
+}

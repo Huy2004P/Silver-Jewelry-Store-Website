@@ -1,0 +1,244 @@
+{
+  "version": 2,
+  "status": "published",
+  "updatedAt": "2026-07-02T06:57:46.598Z",
+  "publishedAt": "2026-07-02T06:57:46.598Z",
+  "theme": "warm-rose-gold",
+  "enable3DEffects": true,
+  "enableGlowBubbles": true,
+  "enableRevealAnimation": true,
+  "hideAllPrices": true,
+  "siteMeta": {
+    "title": "Tiệm Bạc Ánh Xuân - Bạc Cao Cấp",
+    "favicon": "/favicon.svg"
+  },
+  "contactLinks": {
+    "zalo": "https://zalo.me/0979282256",
+    "messenger": "https://www.facebook.com/profile.php?id=61591275371365",
+    "hotline": "tel:0979282256",
+    "facebook": "https://facebook.com/tiembacanhxuan",
+    "instagram": "https://instagram.com/tiembacanhxuan",
+    "tiktok": ""
+  },
+  "sections": {
+    "hero": {
+      "enabled": true,
+      "order": 1
+    },
+    "categories": {
+      "enabled": true,
+      "order": 2
+    },
+    "products": {
+      "enabled": true,
+      "order": 3
+    },
+    "commitments": {
+      "enabled": true,
+      "order": 4
+    },
+    "about": {
+      "enabled": true,
+      "order": 5
+    },
+    "newsletter": {
+      "enabled": true,
+      "order": 6
+    },
+    "footer": {
+      "enabled": true,
+      "order": 7
+    }
+  },
+  "hero": {
+    "badge": "Bạc Cao Cấp Chế Tác Thủ Công",
+    "title": "Toả Sáng Bạc Cao Cấp Mới",
+    "subtitle": "Bộ sưu tập trang sức Bạc Cao Cấp cao cấp, chế tác thủ công tinh xảo dành cho những người phụ nữ đẳng cấp.",
+    "buttonText": "Xem Bộ Sưu Tập",
+    "buttonLink": "#collections",
+    "secondaryButtonText": "Xem Toàn Bộ Sản Phẩm",
+    "secondaryButtonLink": "/products",
+    "image": "/uploads/1782962480848-456166252.jpg",
+    "image2": "/uploads/1782868688085-69602219.jpg",
+    "imageBg": "/uploads/1782844761672-335348800.png",
+    "imageAlt": "Trang sức bạc cao cấp",
+    "image2Alt": "Nhẫn bạc cao cấp",
+    "floatingLabel": "Chế tác",
+    "floatingText": "Bạc Đẹp Cao Cấp",
+    "topBadge": "Bạc Cao Cấp",
+    "highlights": [
+      "Bạc nguyên chất cao cấp tiêu chuẩn quốc tế",
+      "Bảo hành đánh bóng làm mới trọn đời",
+      "Đóng gói hộp quà sang trọng kèm túi nỉ cao cấp"
+    ]
+  },
+  "categories": {
+    "nhan": "/uploads/1782868765888-217631349.jpg",
+    "dayChuyen": "/uploads/1782962563463-808065774.jpg",
+    "bongTai": "/uploads/1782962566307-470135302.jpg",
+    "lacTay": "/uploads/1782962590822-232934064.jpg"
+  },
+  "categoryItems": [
+    {
+      "id": "nhan",
+      "title": "Nhẫn Bạc Nghệ Thuật",
+      "desc": "Chế tác đính đá CZ lấp lánh, thanh lịch",
+      "badge": "Best Seller",
+      "slug": "nhan",
+      "image": "/uploads/1782868765888-217631349.jpg",
+      "alt": "Nhẫn bạc",
+      "enabled": true,
+      "order": 1,
+      "layout": "large"
+    },
+    {
+      "id": "day-chuyen",
+      "title": "Dây Chuyền",
+      "desc": "Mặt đá phong thủy kiêu sa",
+      "badge": "Mới Nhất",
+      "slug": "day-chuyen",
+      "image": "/uploads/1782962563463-808065774.jpg",
+      "alt": "Dây chuyền bạc",
+      "enabled": true,
+      "order": 2,
+      "layout": "tall"
+    },
+    {
+      "id": "bong-tai",
+      "title": "Bông Tai",
+      "desc": "Nhẹ nhàng và tinh khiết",
+      "badge": "",
+      "slug": "bong-tai",
+      "image": "/uploads/1782962566307-470135302.jpg",
+      "alt": "Bông tai bạc",
+      "enabled": true,
+      "order": 3,
+      "layout": "small"
+    },
+    {
+      "id": "lac-tay",
+      "title": "Lắc Tay",
+      "desc": "Điểm xuyết nơi cổ tay",
+      "badge": "",
+      "slug": "lac-tay",
+      "image": "/uploads/1782962590822-232934064.jpg",
+      "alt": "Lắc tay bạc",
+      "enabled": true,
+      "order": 4,
+      "layout": "small"
+    }
+  ],
+  "productsSection": {
+    "eyebrow": "Showroom",
+    "title": "Sản Phẩm Độc Đáo",
+    "allTabText": "Tất cả nổi bật",
+    "emptyText": "Chưa có sản phẩm nào thuộc danh mục này.",
+    "quickViewText": "Xem nhanh",
+    "detailText": "Chi tiết",
+    "materialText": "Bạc Cao Cấp"
+  },
+  "commitmentsSection": {
+    "eyebrow": "Lời Hứa Từ Sự Tận Tâm",
+    "title": "Giá Trị Và Sự Tận Tâm"
+  },
+  "commitments": [
+    {
+      "icon": "💎",
+      "title": "Bạc Cao Cấp Chuẩn",
+      "desc": "Bạc cao cấp nguyên chất, không pha tạp",
+      "enabled": true,
+      "order": 1
+    },
+    {
+      "icon": "✨",
+      "title": "Hỗ trợ đánh bóng, bảo dưỡng trang sức",
+      "desc": "Hỗ trợ tân trang, xi mạ và đánh bóng trọn đời (với chi phí ưu đãi)",
+      "enabled": true,
+      "order": 2
+    },
+    {
+      "icon": "🎁",
+      "title": "Hộp Quà Sang Trọng",
+      "desc": "Đóng gói cao cấp, sẵn sàng làm quà tặng",
+      "enabled": true,
+      "order": 3
+    },
+    {
+      "icon": "🚚",
+      "title": "Miễn phí vận chuyển khu vực lân cận cửa hàng (<2km).",
+      "desc": "Tặng ngay ưu đãi Freeship tận cửa cho đơn từ 2 triệu",
+      "enabled": true,
+      "order": 4
+    }
+  ],
+  "about": {
+    "eyebrow": "Di Sản & Chế Tác",
+    "title": "Về Chúng Tôi",
+    "quote": "Mỗi thiết kế trang sức bạc tại Ánh Xuân là một tác phẩm ghi dấu sự tận tụy của nghệ nhân.",
+    "content1": "Tiệm Bạc Ánh Xuân ra đời từ tình yêu với vẻ đẹp tinh tế của Bạc Cao Cấp nguyên chất. Mỗi sản phẩm là kết tinh của bàn tay nghệ nhân giàu kinh nghiệm, mang đến những thiết kế trang sức vừa hiện đại, vừa đậm chất thủ công truyền thống.",
+    "content2": "Chúng tôi tin rằng trang sức không chỉ là phụ kiện — mà là cách để người phụ nữ thể hiện cá tính và đẳng cấp của chính mình.",
+    "image": "/craftsmanship.png",
+    "imageAlt": "Jewelry Craftsmanship",
+    "imageCaption": "Workbench - Tỉ mỉ từng chi tiết"
+  },
+  "newsletter": {
+    "enabled": true,
+    "eyebrow": "Thành Viên Độc Quyền",
+    "title": "Nhận Ưu Đãi & Tin Tức Sớm Nhất",
+    "desc": "Nhận thông báo sớm nhất về sản phẩm mới và chương trình khuyến mãi đặc quyền.",
+    "placeholder": "Nhập email của bạn...",
+    "buttonText": "Đăng ký ngay",
+    "successTitle": "Đăng ký thành công!",
+    "successMessage": "Cảm ơn bạn đã đồng hành cùng Tiệm Bạc Ánh Xuân."
+  },
+  "quickView": {
+    "descriptionTitle": "Mô tả sản phẩm",
+    "statusLabel": "Trạng thái:",
+    "availableText": "Còn hàng",
+    "unavailableText": "Hết hàng",
+    "materialLabel": "Chất liệu:",
+    "materialText": "Bạc Cao Cấp nguyên chất",
+    "detailButtonText": "Xem chi tiết",
+    "contactButtonText": "Liên hệ mua"
+  },
+  "footer": {
+    "brandName": "TIỆM BẠC ÁNH XUÂN",
+    "desc": "Chuyên trang sức bạc Ý, bạc cao cấp. Tinh xảo từ thiết kế đến khâu chế tác thủ công, tôn vinh vẻ đẹp kiêu sa và thanh lịch của bạn.",
+    "phone": "0979282256",
+    "email": "example@gmail.com",
+    "address": "Số 60, Ấp Mỹ Thuận, Xã Nhơn Mỹ, Tỉnh An Giang",
+    "hours": "Thứ 2 - Chủ Nhật: 7h - 21h",
+    "discoverTitle": "Khám Phá",
+    "contactTitle": "Liên Hệ",
+    "hoursTitle": "Giờ Mở Cửa",
+    "copyright": "Bảo lưu mọi quyền.",
+    "privacyText": "Chính sách bảo mật",
+    "termsText": "Điều khoản dịch vụ",
+    "links": [
+      {
+        "label": "Tất cả sản phẩm",
+        "url": "/products",
+        "enabled": true,
+        "order": 1
+      },
+      {
+        "label": "Nhẫn Bạc Cao Cấp",
+        "url": "/products?category=nhan",
+        "enabled": true,
+        "order": 2
+      },
+      {
+        "label": "Dây Chuyền Đính Đá",
+        "url": "/products?category=day-chuyen",
+        "enabled": true,
+        "order": 3
+      },
+      {
+        "label": "Bông Tai Ngọc Trai",
+        "url": "/products?category=bong-tai",
+        "enabled": true,
+        "order": 4
+      }
+    ]
+  }
+}
