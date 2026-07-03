@@ -1,15 +1,18 @@
 FROM node:20-alpine AS frontend-deps
 WORKDIR /app
+RUN apk add --no-cache openssl
 COPY package*.json ./
 RUN npm ci
 
 FROM node:20-alpine AS server-deps
 WORKDIR /app/server
+RUN apk add --no-cache openssl
 COPY server/package*.json ./
 RUN npm ci
 
 FROM node:20-alpine AS build
 WORKDIR /app
+RUN apk add --no-cache openssl
 COPY --from=frontend-deps /app/node_modules ./node_modules
 COPY --from=server-deps /app/server/node_modules ./server/node_modules
 COPY . .
@@ -19,6 +22,7 @@ RUN npm --prefix server run build
 
 FROM node:20-alpine AS runtime
 WORKDIR /app
+RUN apk add --no-cache openssl
 ENV NODE_ENV=production
 ENV PORT=3001
 ENV DATABASE_URL=file:./dev.db

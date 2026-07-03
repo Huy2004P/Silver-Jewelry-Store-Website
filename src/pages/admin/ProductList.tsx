@@ -30,11 +30,11 @@ export default function ProductList() {
 
   return (
     <div>
-      <div className="flex items-center justify-between">
-        <h1 className="font-display text-[32px] font-semibold text-ink">Sản phẩm</h1>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="font-display text-[28px] font-semibold text-ink sm:text-[32px]">Sản phẩm</h1>
         <Link
           to="/admin/products/new"
-          className="rounded-full bg-action-blue px-5 py-2 font-body text-[14px] text-white no-underline transition-transform active:scale-95"
+          className="w-full rounded-full bg-action-blue px-5 py-2 text-center font-body text-[14px] text-white no-underline transition-transform active:scale-95 sm:w-auto"
         >
           + Thêm sản phẩm
         </Link>
@@ -43,7 +43,7 @@ export default function ProductList() {
       {loading ? (
         <p className="mt-8 font-body text-[17px] text-ink-muted-48">Đang tải...</p>
       ) : (
-        <div className="mt-8 overflow-x-auto rounded-[18px] border border-hairline bg-canvas">
+        <div className="-mx-4 mt-6 overflow-x-auto border-y border-hairline bg-canvas sm:mx-0 sm:mt-8 sm:rounded-[18px] sm:border">
           <table className="w-full min-w-[640px]">
             <thead>
               <tr className="border-b border-hairline text-left">

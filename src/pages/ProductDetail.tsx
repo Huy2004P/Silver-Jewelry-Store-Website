@@ -99,13 +99,13 @@ export default function ProductDetail() {
   const isPriceHidden = landingData?.hideAllPrices || !product.showPrice
 
   return (
-    <div className="pt-11">
-      <div className="mx-auto max-w-[1440px] px-5 py-section">
+    <div className="pt-16">
+      <div className="mx-auto max-w-[1440px] px-4 py-14 sm:px-5 sm:py-section">
         <Link to="/products" className="font-body text-[14px] text-action-blue no-underline">
           ← Bộ sưu tập
         </Link>
 
-        <div className="mt-8 grid grid-cols-1 gap-12 lg:grid-cols-2">
+        <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
           <div>
             <div className="aspect-square overflow-hidden rounded-[18px] bg-parchment">
               <img
@@ -116,13 +116,13 @@ export default function ProductDetail() {
               />
             </div>
             {product.images.length > 1 && (
-              <div className="mt-4 flex gap-3">
+              <div className="mt-4 flex gap-3 overflow-x-auto pb-1">
                 {product.images.map((img, i) => (
                   <button
                     key={img}
                     type="button"
                     onClick={() => setActiveImage(i)}
-                    className={`h-20 w-20 overflow-hidden rounded-[8px] border-2 cursor-pointer ${
+                    className={`h-16 w-16 shrink-0 overflow-hidden rounded-[8px] border-2 cursor-pointer sm:h-20 sm:w-20 ${
                       i === activeImage ? 'border-action-blue' : 'border-hairline'
                     }`}
                   >
@@ -137,7 +137,7 @@ export default function ProductDetail() {
             <p className="font-body text-[14px] tracking-[-0.224px] text-ink-muted-48">
               {product.category.name}
             </p>
-            <h1 className="mt-2 font-display text-[40px] font-semibold leading-[1.1] tracking-[-0.374px] text-ink max-[640px]:text-[34px]">
+            <h1 className="mt-2 break-words font-display text-[34px] font-semibold leading-[1.1] tracking-[-0.2px] text-ink sm:text-[40px] sm:tracking-[-0.374px]">
               {product.name}
             </h1>
             <span className="mt-3 inline-block rounded-full bg-action-blue/10 px-3 py-1 font-body text-[12px] text-action-blue">
@@ -149,7 +149,7 @@ export default function ProductDetail() {
             {!product.isAvailable && (
               <p className="mt-2 font-body text-[14px] text-red-500 font-medium">Tạm hết hàng</p>
             )}
-            <p className="mt-8 font-body text-[17px] font-normal leading-[1.47] tracking-[-0.374px] text-ink-muted-48">
+            <p className="mt-8 font-body text-[16px] font-normal leading-[1.6] tracking-[-0.2px] text-ink-muted-48 sm:text-[17px] sm:tracking-[-0.374px]">
               {product.description}
             </p>
 
@@ -174,8 +174,8 @@ export default function ProductDetail() {
         </div>
 
         {/* Review & Ratings Section */}
-        <div className="mt-20 border-t border-hairline pt-16 max-w-4xl">
-          <h2 className="font-display text-[32px] font-bold text-ink">Đánh Giá & Nhận Xét</h2>
+        <div className="mt-14 max-w-4xl border-t border-hairline pt-12 sm:mt-20 sm:pt-16">
+          <h2 className="font-display text-[28px] font-bold text-ink sm:text-[32px]">Đánh Giá & Nhận Xét</h2>
           
           <div className="mt-8 grid grid-cols-1 md:grid-cols-12 gap-12">
             {/* Reviews list */}
@@ -185,7 +185,7 @@ export default function ProductDetail() {
               ) : (
                 reviews.map((rev) => (
                   <div key={rev.id} className="rounded-[16px] bg-white/40 border border-white/60 p-5 shadow-xs">
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
                       <h4 className="font-body text-[15px] font-bold text-ink">{rev.name}</h4>
                       <span className="text-[12px] text-ink-muted-48">
                         {new Date(rev.createdAt).toLocaleDateString('vi-VN')}
@@ -271,4 +271,3 @@ export default function ProductDetail() {
     </div>
   )
 }
-

@@ -62,7 +62,7 @@ export default function ProductEdit() {
 
   return (
     <div>
-      <h1 className="font-display text-[32px] font-semibold text-ink">Sửa sản phẩm</h1>
+      <h1 className="font-display text-[28px] font-semibold text-ink sm:text-[32px]">Sửa sản phẩm</h1>
       <ProductForm initial={initial} onSubmit={handleSubmit} submitLabel="Cập nhật" />
     </div>
   )

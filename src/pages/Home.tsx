@@ -298,12 +298,12 @@ export default function Home() {
   }
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#faf9f6] via-[#fbfcff] to-[#f7f8fa]">
+    <div className="relative min-h-screen overflow-x-clip bg-gradient-to-b from-[#faf9f6] via-[#fbfcff] to-[#f7f8fa]">
       {landingData.enableGlowBubbles && (
         <>
-          <div className="absolute right-[-10%] top-[5%] z-0 h-[600px] w-[600px] rounded-full bg-blue-200/50 blur-[130px] animate-pulse" />
-          <div className="absolute left-[-15%] top-[32%] z-0 h-[700px] w-[700px] rounded-full bg-rose-200/50 blur-[140px] animate-pulse" style={{animationDelay: '1s'}} />
-          <div className="absolute bottom-[6%] right-[-10%] z-0 h-[600px] w-[600px] rounded-full bg-teal-100/50 blur-[120px] animate-pulse" style={{animationDelay: '2s'}} />
+          <div className="absolute right-[-10%] top-[5%] z-0 hidden h-[600px] w-[600px] rounded-full bg-blue-200/50 blur-[130px] animate-pulse sm:block" />
+          <div className="absolute left-[-15%] top-[32%] z-0 hidden h-[700px] w-[700px] rounded-full bg-rose-200/50 blur-[140px] animate-pulse sm:block" style={{animationDelay: '1s'}} />
+          <div className="absolute bottom-[6%] right-[-10%] z-0 hidden h-[600px] w-[600px] rounded-full bg-teal-100/50 blur-[120px] animate-pulse sm:block" style={{animationDelay: '2s'}} />
         </>
       )}
 
@@ -331,25 +331,25 @@ function HeroSection({ landingData }: { landingData: LandingConfig }) {
   const heroFloat = landingData.hero.image2 || landingData.hero.image || '/cat-nhan.png'
 
   return (
-    <section className="relative z-10 flex min-h-screen items-center overflow-hidden px-6 py-24 text-ink md:px-12">
+    <section className="relative z-10 flex min-h-[100svh] items-center overflow-hidden px-4 py-24 text-ink sm:px-6 md:px-12">
       <div className="absolute inset-0 z-0">
         <img src={heroBg} alt="" className="h-full w-full object-cover" onError={(event) => { event.currentTarget.src = '/hero.png' }} />
         <div className="absolute inset-0 bg-white/65" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#faf9f6]/40 to-[#faf9f6]" />
       </div>
 
-      <div className="relative z-10 mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-12 md:grid-cols-12">
-        <div className="space-y-8 text-center md:col-span-7 md:text-left">
+      <div className="relative z-10 mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-8 md:grid-cols-12 md:gap-12">
+        <div className="space-y-6 text-center md:col-span-7 md:space-y-8 md:text-left">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/80 bg-gradient-to-r from-white/70 to-white/40 px-4 py-1.5 font-body text-[12px] font-bold uppercase tracking-[2px] text-action-blue shadow-lg shadow-white/20 backdrop-blur-xl hover:shadow-xl hover:from-white/80 transition-all">
             ✨ {landingData.hero.badge || 'Bạc Cao Cấp Chế Tác Thủ Công'}
           </span>
-          <h1 className="font-display text-[64px] font-bold leading-[1.06] tracking-[-0.03em] text-ink max-[1068px]:text-[50px] max-[640px]:text-[38px]">
+          <h1 className="font-display text-[34px] font-bold leading-[1.08] tracking-[-0.01em] text-ink max-[380px]:text-[32px] sm:text-[46px] lg:text-[64px] lg:tracking-[-0.03em]">
             {landingData.hero.title}
           </h1>
-          <p className="max-w-[620px] font-body text-[18px] font-light leading-[1.6] text-ink-muted-80 max-[640px]:text-[16px]">
+          <p className="mx-auto max-w-[620px] font-body text-[16px] font-light leading-[1.6] text-ink-muted-80 md:mx-0 md:text-[18px]">
             {landingData.hero.subtitle}
           </p>
-          <ul className="m-0 max-w-[520px] list-none space-y-3.5 p-0 font-body text-[15px] font-medium text-ink-muted-80">
+          <ul className="mx-auto max-w-[520px] list-none space-y-3 p-0 text-left font-body text-[14px] font-medium text-ink-muted-80 md:mx-0 md:space-y-3.5 md:text-[15px]">
             {(landingData.hero.highlights || []).filter(Boolean).map((highlight) => (
               <li key={highlight} className="flex items-center gap-3">
                 <span className="flex h-5 w-5 items-center justify-center rounded-full bg-action-blue/10 text-[11px] font-bold text-action-blue">✓</span>
@@ -357,28 +357,28 @@ function HeroSection({ landingData }: { landingData: LandingConfig }) {
               </li>
             ))}
           </ul>
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-2 md:justify-start">
-            <a href={landingData.hero.buttonLink || '#collections'} className="rounded-full bg-action-blue px-8 py-4 font-body text-[15px] font-bold text-white no-underline shadow-lg shadow-action-blue/20 transition-all duration-300 hover:scale-105 hover:bg-action-blue-focus">
+          <div className="flex flex-col items-stretch justify-center gap-3 pt-2 sm:flex-row sm:items-center sm:gap-4 md:justify-start">
+            <a href={landingData.hero.buttonLink || '#collections'} className="rounded-full bg-action-blue px-8 py-4 text-center font-body text-[15px] font-bold text-white no-underline shadow-lg shadow-action-blue/20 transition-all duration-300 hover:scale-105 hover:bg-action-blue-focus">
               {landingData.hero.buttonText}
             </a>
-            <Link to={landingData.hero.secondaryButtonLink || '/products'} className="rounded-full border border-ink/20 px-8 py-4 font-body text-[15px] font-bold text-ink no-underline transition-all duration-300 hover:bg-ink/5">
+            <Link to={landingData.hero.secondaryButtonLink || '/products'} className="rounded-full border border-ink/20 px-8 py-4 text-center font-body text-[15px] font-bold text-ink no-underline transition-all duration-300 hover:bg-ink/5">
               {landingData.hero.secondaryButtonText || 'Xem Toàn Bộ Sản Phẩm'}
             </Link>
           </div>
         </div>
 
-        <div className="relative z-10 flex h-[460px] w-full items-center justify-center md:col-span-5 md:h-[520px]">
-          <div className="tilt-card absolute left-6 top-6 h-[380px] w-[75%] overflow-hidden rounded-[28px] border border-white/80 bg-white/60 p-1.5 shadow-2xl shadow-blue-500/20 backdrop-blur-xl hover:shadow-3xl hover:shadow-blue-500/30 transition-all duration-300">
+        <div className="relative z-10 flex h-[330px] w-full items-center justify-center sm:h-[420px] md:col-span-5 md:h-[520px]">
+          <div className="tilt-card absolute left-2 top-6 h-[250px] w-[72%] overflow-hidden rounded-[24px] border border-white/80 bg-white/60 p-1.5 shadow-2xl shadow-blue-500/20 backdrop-blur-xl transition-all duration-300 hover:shadow-3xl hover:shadow-blue-500/30 sm:left-6 sm:h-[330px] md:h-[380px]">
             <img src={heroMain} alt={landingData.hero.imageAlt || 'Trang sức bạc'} className="h-full w-full rounded-[24px] object-cover" onError={(event) => { event.currentTarget.src = '/cat-day-chuyen.png' }} />
           </div>
-          <div className="tilt-card absolute bottom-8 right-2 aspect-square w-[58%] overflow-hidden rounded-[24px] border-[6px] border-white/85 bg-white/70 p-1 shadow-2xl shadow-rose-500/20 backdrop-blur-xl hover:shadow-3xl hover:shadow-rose-500/30 transition-all duration-300">
+          <div className="tilt-card absolute bottom-6 right-0 aspect-square w-[56%] overflow-hidden rounded-[22px] border-[5px] border-white/85 bg-white/70 p-1 shadow-2xl shadow-rose-500/20 backdrop-blur-xl transition-all duration-300 hover:shadow-3xl hover:shadow-rose-500/30 sm:bottom-8 sm:right-2 sm:w-[58%] sm:rounded-[24px] sm:border-[6px]">
             <img src={heroFloat} alt={landingData.hero.image2Alt || 'Nhẫn bạc'} className="h-full w-full rounded-[18px] object-cover" onError={(event) => { event.currentTarget.src = '/cat-nhan.png' }} />
           </div>
-          <div className="absolute bottom-12 left-2 max-w-[170px] rounded-[16px] border border-white/85 bg-white/65 px-4 py-2.5 text-center shadow-lg backdrop-blur-xl">
+          <div className="absolute bottom-7 left-0 max-w-[160px] rounded-[16px] border border-white/85 bg-white/65 px-3 py-2 text-center shadow-lg backdrop-blur-xl sm:bottom-12 sm:left-2 sm:max-w-[170px] sm:px-4 sm:py-2.5">
             <span className="block font-body text-[10px] font-bold uppercase tracking-[1px] text-ink-muted-48">{landingData.hero.floatingLabel || 'Chế tác'}</span>
             <span className="font-body text-[12.5px] font-bold text-action-blue">{landingData.hero.floatingText || 'Bạc Đẹp Cao Cấp'}</span>
           </div>
-          <div className="absolute right-6 top-2 rounded-full bg-ink/90 px-4 py-1.5 text-center text-white shadow-md">
+          <div className="absolute right-2 top-2 rounded-full bg-ink/90 px-3 py-1.5 text-center text-white shadow-md sm:right-6 sm:px-4">
             <span className="font-body text-[10.5px] font-bold uppercase tracking-[1.5px]">{landingData.hero.topBadge || 'Bạc Cao Cấp'}</span>
           </div>
         </div>
@@ -389,17 +389,17 @@ function HeroSection({ landingData }: { landingData: LandingConfig }) {
 
 function CategorySection({ items }: { items: LandingCategoryItem[] }) {
   return (
-    <section id="collections" className="relative z-10 border-b border-divider-soft/50 px-6 py-28 md:px-12 bg-gradient-to-b from-transparent via-white/20 to-transparent">
+    <section id="collections" className="relative z-10 border-b border-divider-soft/50 bg-gradient-to-b from-transparent via-white/20 to-transparent px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-28">
       <div className="mx-auto max-w-[1440px]">
         <SectionHeading eyebrow="Danh Mục Sản Phẩm" title="Dòng Sản Phẩm Tiêu Biểu" centered />
-        <div className="mt-16 grid grid-cols-1 gap-6 auto-rows-[240px] md:grid-cols-4">
+        <div className="mt-10 grid grid-cols-1 auto-rows-[220px] gap-5 sm:mt-16 sm:auto-rows-[240px] sm:gap-6 md:grid-cols-4">
           {items.map((item) => (
             <Link key={item.id} to={`/products?category=${item.slug}`} className={`tilt-card reveal-on-scroll relative overflow-hidden rounded-[28px] border border-white/90 bg-gradient-to-br from-white/60 to-white/30 shadow-lg shadow-black/10 backdrop-blur-xl transition-all duration-500 hover:shadow-2xl hover:shadow-action-blue/20 hover:border-white ${categoryCardClass(item.layout)}`}>
               <img src={item.image || '/cat-nhan.png'} alt={item.alt || item.title} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-110" onError={(event) => { event.currentTarget.src = '/cat-nhan.png' }} />
               <div className="absolute inset-0 bg-gradient-to-t from-black-pure/85 via-black-pure/35 to-transparent" />
-              <div className="absolute bottom-8 left-8 right-8 space-y-2 text-white">
+              <div className="absolute bottom-6 left-6 right-6 space-y-2 text-white sm:bottom-8 sm:left-8 sm:right-8">
                 {item.badge && <span className="font-body text-[11px] font-bold uppercase tracking-[2px] text-sky-link">{item.badge}</span>}
-                <h3 className="font-display text-[28px] font-bold leading-tight">{item.title}</h3>
+                <h3 className="font-display text-[24px] font-bold leading-tight sm:text-[28px]">{item.title}</h3>
                 <p className="font-body text-[13px] font-light text-body-muted">{item.desc}</p>
               </div>
             </Link>
@@ -429,7 +429,7 @@ function ProductsSection({
 }) {
   const section = landingData.productsSection
   return (
-    <section className="relative z-10 border-b border-divider-soft/50 px-6 py-28 md:px-12 bg-gradient-to-b from-transparent via-blue-50/10 to-transparent">
+    <section className="relative z-10 border-b border-divider-soft/50 bg-gradient-to-b from-transparent via-blue-50/10 to-transparent px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-28">
       <div className="mx-auto max-w-[1440px]">
         <div className="flex flex-col justify-between border-b border-divider-soft/40 pb-8 md:flex-row md:items-end">
           <SectionHeading eyebrow={section?.eyebrow || 'Showroom'} title={section?.title || 'Sản Phẩm Độc Đáo'} />
@@ -440,7 +440,7 @@ function ProductsSection({
             ))}
           </div>
         </div>
-        <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-12 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4">
           {products.length === 0 ? (
             <div className="col-span-full py-16 text-center text-ink-muted-48">{section?.emptyText || 'Chưa có sản phẩm nào thuộc danh mục này.'}</div>
           ) : products.map((product) => (
@@ -475,8 +475,8 @@ function ProductsSection({
 
 function CommitmentsSection({ landingData, commitments }: { landingData: LandingConfig; commitments: LandingConfig['commitments'] }) {
   return (
-    <section className="relative z-10 border-b border-divider-soft/50 px-6 py-28 md:px-12 bg-gradient-to-b from-transparent via-rose-50/10 to-transparent">
-      <div className="mx-auto max-w-[1440px] space-y-16">
+    <section className="relative z-10 border-b border-divider-soft/50 bg-gradient-to-b from-transparent via-rose-50/10 to-transparent px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-28">
+      <div className="mx-auto max-w-[1440px] space-y-10 sm:space-y-16">
         <SectionHeading eyebrow={landingData.commitmentsSection?.eyebrow || 'Lời Hứa Từ Sự Tận Tâm'} title={landingData.commitmentsSection?.title || 'Giá Trị Và Sự Tận Tâm'} centered />
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {commitments.map((item, index) => (
@@ -494,12 +494,12 @@ function CommitmentsSection({ landingData, commitments }: { landingData: Landing
 
 function AboutSection({ landingData }: { landingData: LandingConfig }) {
   return (
-    <section className="relative z-10 border-b border-divider-soft/50 px-6 py-28 md:px-12">
+    <section className="relative z-10 border-b border-divider-soft/50 px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-28">
       <div className="mx-auto max-w-[1280px]">
-        <div className="grid grid-cols-1 items-center gap-16 md:grid-cols-12">
+        <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-12 md:gap-16">
           <div className="space-y-8 md:col-span-7">
             <SectionHeading eyebrow={landingData.about.eyebrow || 'Di Sản & Chế Tác'} title={landingData.about.title} />
-            {landingData.about.quote && <blockquote className="border-l-4 border-action-blue/30 pl-6 font-display text-[20px] italic leading-[1.6] text-ink-muted-80">"{landingData.about.quote}"</blockquote>}
+            {landingData.about.quote && <blockquote className="border-l-4 border-action-blue/30 pl-5 font-display text-[18px] italic leading-[1.6] text-ink-muted-80 sm:pl-6 sm:text-[20px]">"{landingData.about.quote}"</blockquote>}
             <div className="space-y-4 font-body text-[16px] font-light leading-[1.75] text-ink-muted-48">
               <p>{landingData.about.content1}</p>
               <p>{landingData.about.content2}</p>
@@ -532,8 +532,8 @@ function NewsletterSection({
 }) {
   const newsletter = landingData.newsletter
   return (
-    <section className="relative z-10 px-6 py-28 md:px-12">
-      <div className="mx-auto max-w-[1100px] overflow-hidden rounded-[36px] bg-gradient-to-br from-[#1d1d1f] via-[#0f0f12] to-[#0a0a0c] px-8 py-16 text-white shadow-3xl shadow-black/50 md:p-20 border border-white/10 backdrop-blur-sm">
+    <section className="relative z-10 px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-28">
+      <div className="mx-auto max-w-[1100px] overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-br from-[#1d1d1f] via-[#0f0f12] to-[#0a0a0c] px-5 py-12 text-white shadow-3xl shadow-black/50 backdrop-blur-sm sm:rounded-[36px] sm:px-8 sm:py-16 md:p-20">
         <div className="absolute inset-0 bg-gradient-to-b from-action-blue/5 to-transparent rounded-[36px]" />
         <div className="relative z-10 mx-auto max-w-[650px] space-y-6 text-center">
           <span className="font-body text-[12px] font-bold uppercase tracking-[3px] text-sky-link">{newsletter?.eyebrow || 'Thành Viên Độc Quyền'}</span>
@@ -558,7 +558,7 @@ function NewsletterSection({
 function LandingFooter({ landingData, links }: { landingData: LandingConfig; links: NonNullable<LandingConfig['footer']['links']> }) {
   const footer = landingData.footer
   return (
-    <footer className="relative z-10 border-t border-white/50 bg-white/40 px-6 py-20 backdrop-blur-md md:px-12">
+    <footer className="relative z-10 border-t border-white/50 bg-white/40 px-4 py-14 backdrop-blur-md sm:px-6 sm:py-20 md:px-12">
       <div className="mx-auto max-w-[1440px]">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
           <div className="space-y-4">
@@ -618,10 +618,10 @@ function QuickViewModal({
 }) {
   const quickView = landingData.quickView
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black-pure/45 p-4 backdrop-blur-md">
-      <div className="relative w-full max-w-[900px] overflow-hidden rounded-[28px] border border-white/80 bg-white/75 shadow-2xl backdrop-blur-2xl md:flex">
+    <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black-pure/45 p-3 backdrop-blur-md sm:p-4">
+      <div className="relative my-auto max-h-[calc(100svh-1.5rem)] w-full max-w-[900px] overflow-y-auto rounded-[24px] border border-white/80 bg-white/75 shadow-2xl backdrop-blur-2xl md:flex md:rounded-[28px]">
         <button onClick={onClose} className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/80 text-xl text-ink shadow hover:bg-white">&times;</button>
-        <div className="flex flex-col justify-between bg-white/30 p-6 md:w-1/2">
+        <div className="flex flex-col justify-between bg-white/30 p-4 sm:p-6 md:w-1/2">
           <div className="aspect-square w-full overflow-hidden rounded-[18px] border border-white/50 bg-white">
             <img src={product.images?.[activeImageIdx] || productFallbackImage(product)} alt={product.name} className="h-full w-full object-cover" onError={(event) => { event.currentTarget.src = productFallbackImage(product) }} />
           </div>
@@ -635,7 +635,7 @@ function QuickViewModal({
             </div>
           )}
         </div>
-        <div className="flex flex-col justify-between p-8 md:w-1/2">
+        <div className="flex flex-col justify-between p-5 sm:p-8 md:w-1/2">
           <div>
             <span className="rounded-full bg-action-blue/10 px-3 py-1 font-body text-[11px] font-semibold uppercase tracking-[1px] text-action-blue">{product.category?.name || 'Khác'}</span>
             <h2 className="mt-4 font-display text-[28px] font-bold text-ink">{product.name}</h2>
@@ -648,7 +648,7 @@ function QuickViewModal({
           <div className="mt-8 space-y-3">
             <InfoRow label={quickView?.statusLabel || 'Trạng thái:'} value={product.isAvailable ? (quickView?.availableText || 'Còn hàng') : (quickView?.unavailableText || 'Hết hàng')} />
             <InfoRow label={quickView?.materialLabel || 'Chất liệu:'} value={quickView?.materialText || 'Bạc Cao Cấp nguyên chất'} />
-            <div className="flex gap-3 pt-3">
+            <div className="flex flex-col gap-3 pt-3 sm:flex-row">
               <Link to={`/products/${product.slug}`} onClick={onClose} className="flex-1 rounded-full border border-action-blue py-3 text-center font-body text-[14px] font-semibold text-action-blue transition-all hover:bg-action-blue/5">{quickView?.detailButtonText || 'Xem chi tiết'}</Link>
               <a href={landingData.contactLinks?.zalo || landingData.contactLinks?.hotline || 'tel:0909999999'} target={landingData.contactLinks?.zalo ? '_blank' : undefined} rel={landingData.contactLinks?.zalo ? 'noopener noreferrer' : undefined} className="flex-1 rounded-full bg-action-blue py-3 text-center font-body text-[14px] font-semibold text-white no-underline shadow transition-all hover:bg-action-blue-focus">{quickView?.contactButtonText || 'Liên hệ mua'}</a>
             </div>
@@ -690,7 +690,7 @@ function SectionHeading({ eyebrow, title, centered = false }: { eyebrow: string;
       <span className={`font-body text-[12px] font-bold uppercase tracking-[3px] bg-gradient-to-r from-action-blue to-sky-link bg-clip-text text-transparent ${centered ? 'flex items-center justify-center gap-1.5' : 'flex items-center gap-1.5'}`}>
         <span>✦</span> {eyebrow} <span>✦</span>
       </span>
-      <h2 className="font-display text-[48px] font-bold text-ink max-[640px]:text-[36px] drop-shadow-sm">{title}</h2>
+      <h2 className="font-display text-[34px] font-bold text-ink drop-shadow-sm sm:text-[40px] lg:text-[48px]">{title}</h2>
       <div className={`${centered ? 'mx-auto' : ''} h-1 w-32 bg-gradient-to-r from-action-blue via-action-blue to-transparent rounded-full shadow-lg shadow-action-blue/30`} />
     </div>
   )
@@ -698,7 +698,7 @@ function SectionHeading({ eyebrow, title, centered = false }: { eyebrow: string;
 
 function FilterButton({ active, onClick, children }: { active: boolean; onClick: () => void; children: ReactNode }) {
   return (
-    <button onClick={onClick} className={`rounded-full px-6 py-2.5 font-body text-[13px] font-semibold transition-all duration-300 ${active ? 'bg-gradient-to-r from-action-blue to-sky-link text-white shadow-lg shadow-action-blue/40 hover:shadow-xl' : 'border border-white/80 bg-gradient-to-br from-white/70 to-white/40 text-ink backdrop-blur-xl hover:bg-white/80 hover:shadow-md'}`}>
+    <button onClick={onClick} className={`shrink-0 rounded-full px-5 py-2.5 font-body text-[13px] font-semibold transition-all duration-300 sm:px-6 ${active ? 'bg-gradient-to-r from-action-blue to-sky-link text-white shadow-lg shadow-action-blue/40 hover:shadow-xl' : 'border border-white/80 bg-gradient-to-br from-white/70 to-white/40 text-ink backdrop-blur-xl hover:bg-white/80 hover:shadow-md'}`}>
       {children}
     </button>
   )
@@ -714,7 +714,7 @@ function SocialLink({ href, children }: { href: string; children: ReactNode }) {
 
 function InfoRow({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex items-center justify-between border-b border-white/40 pb-3 text-[14px]">
+    <div className="flex flex-col gap-1 border-b border-white/40 pb-3 text-[14px] sm:flex-row sm:items-center sm:justify-between">
       <span className="text-ink-muted-48">{label}</span>
       <span className="font-semibold text-ink">{value}</span>
     </div>

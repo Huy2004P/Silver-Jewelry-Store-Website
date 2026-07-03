@@ -135,12 +135,12 @@ export default function Products() {
   }
 
   return (
-    <div className="pt-11">
-      <div className="mx-auto max-w-[1440px] px-5 py-section">
-        <h1 className="font-display text-[40px] font-semibold leading-[1.1] tracking-[-0.374px] text-ink max-[640px]:text-[34px]">
+    <div className="pt-16">
+      <div className="mx-auto max-w-[1440px] px-4 py-14 sm:px-5 sm:py-section">
+        <h1 className="font-display text-[34px] font-semibold leading-[1.1] tracking-[-0.2px] text-ink sm:text-[40px] sm:tracking-[-0.374px]">
           Bộ Sưu Tập
         </h1>
-        <p className="mt-2 font-body text-[17px] font-normal leading-[1.47] tracking-[-0.374px] text-ink-muted-48">
+        <p className="mt-2 max-w-2xl font-body text-[16px] font-normal leading-[1.55] tracking-[-0.2px] text-ink-muted-48 sm:text-[17px] sm:tracking-[-0.374px]">
           Khám phá toàn bộ trang sức Bạc Cao Cấp cao cấp
         </p>
 
@@ -148,7 +148,7 @@ export default function Products() {
           <button
             type="button"
             onClick={() => setCategory('all')}
-            className={`rounded-full px-4 py-2 font-body text-[14px] tracking-[-0.224px] transition-transform active:scale-95 ${activeCategory === 'all'
+            className={`shrink-0 rounded-full px-4 py-2 font-body text-[14px] tracking-[-0.224px] transition-transform active:scale-95 ${activeCategory === 'all'
                 ? 'bg-action-blue text-white'
                 : 'border border-hairline bg-canvas text-ink'
               }`}
@@ -160,7 +160,7 @@ export default function Products() {
               key={cat.id}
               type="button"
               onClick={() => setCategory(cat.slug)}
-              className={`rounded-full px-4 py-2 font-body text-[14px] tracking-[-0.224px] transition-transform active:scale-95 ${activeCategory === cat.slug
+              className={`shrink-0 rounded-full px-4 py-2 font-body text-[14px] tracking-[-0.224px] transition-transform active:scale-95 ${activeCategory === cat.slug
                   ? 'bg-action-blue text-white'
                   : 'border border-hairline bg-canvas text-ink'
                 }`}
@@ -171,17 +171,17 @@ export default function Products() {
         </div>
 
         <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <form onSubmit={handleSearch} className="flex gap-2">
+          <form onSubmit={handleSearch} className="flex w-full gap-2 sm:w-auto">
             <input
               type="search"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Tìm kiếm sản phẩm..."
-              className="h-11 w-full rounded-full border border-hairline bg-canvas px-5 font-body text-[17px] tracking-[-0.374px] text-ink outline-none focus:ring-2 focus:ring-action-blue-focus sm:w-72"
+              className="h-11 min-w-0 flex-1 rounded-full border border-hairline bg-canvas px-5 font-body text-[16px] tracking-[-0.2px] text-ink outline-none focus:ring-2 focus:ring-action-blue-focus sm:w-72 sm:text-[17px] sm:tracking-[-0.374px]"
             />
             <button
               type="submit"
-              className="rounded-full bg-action-blue px-5 py-2 font-body text-[14px] text-white transition-transform active:scale-95"
+              className="shrink-0 rounded-full bg-action-blue px-5 py-2 font-body text-[14px] text-white transition-transform active:scale-95"
             >
               Tìm
             </button>
@@ -189,7 +189,7 @@ export default function Products() {
           <select
             value={sort}
             onChange={(e) => setSort(e.target.value as SortOption)}
-            className="h-11 rounded-full border border-hairline bg-canvas px-4 font-body text-[14px] tracking-[-0.224px] text-ink outline-none"
+            className="h-11 w-full rounded-full border border-hairline bg-canvas px-4 font-body text-[14px] tracking-[-0.224px] text-ink outline-none sm:w-auto"
           >
             <option value="">Mặc định</option>
             <option value="price_asc">Giá tăng dần</option>
@@ -204,7 +204,7 @@ export default function Products() {
             Không tìm thấy sản phẩm nào.
           </p>
         ) : (
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
             {products.map((product) => (
               <ProductCard
                 key={product.id}

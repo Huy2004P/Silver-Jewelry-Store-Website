@@ -95,13 +95,12 @@ export default function CategoryList() {
   return (
     <div>
       <div className="flex items-center justify-between">
-        <h1 className="font-display text-[32px] font-semibold text-ink">Danh mục sản phẩm</h1>
+        <h1 className="font-display text-[28px] font-semibold text-ink sm:text-[32px]">Danh mục sản phẩm</h1>
       </div>
 
-      {/* Form thêm mới */}
-      <form onSubmit={handleAdd} className="mt-6 rounded-[18px] border border-hairline bg-canvas p-6 max-w-xl">
-        <h3 className="font-body text-[17px] font-semibold text-ink mb-4">Thêm danh mục mới</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <form onSubmit={handleAdd} className="mt-6 max-w-xl rounded-[18px] border border-hairline bg-canvas p-4 sm:p-6">
+        <h3 className="mb-4 font-body text-[17px] font-semibold text-ink">Thêm danh mục mới</h3>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <label className="font-body text-[12px] text-ink-muted-48">Tên danh mục</label>
             <input
@@ -129,17 +128,16 @@ export default function CategoryList() {
         <button
           type="submit"
           disabled={adding}
-          className="mt-4 rounded-full bg-action-blue px-5 py-2 font-body text-[14px] text-white transition-transform active:scale-95 disabled:opacity-50"
+          className="mt-4 w-full rounded-full bg-action-blue px-5 py-2 font-body text-[14px] text-white transition-transform active:scale-95 disabled:opacity-50 sm:w-auto"
         >
           {adding ? 'Đang thêm...' : 'Thêm danh mục'}
         </button>
       </form>
 
-      {/* Bảng danh sách */}
       {loading ? (
         <p className="mt-8 font-body text-[17px] text-ink-muted-48">Đang tải...</p>
       ) : (
-        <div className="mt-8 overflow-x-auto rounded-[18px] border border-hairline bg-canvas">
+        <div className="-mx-4 mt-6 overflow-x-auto border-y border-hairline bg-canvas sm:mx-0 sm:mt-8 sm:rounded-[18px] sm:border">
           <table className="w-full min-w-[600px]">
             <thead>
               <tr className="border-b border-hairline text-left">
@@ -195,7 +193,7 @@ export default function CategoryList() {
                             type="button"
                             disabled={saving}
                             onClick={() => handleSave(cat.id)}
-                            className="font-body text-[14px] text-action-blue font-semibold"
+                            className="font-body text-[14px] font-semibold text-action-blue"
                           >
                             {saving ? 'Lưu...' : 'Lưu'}
                           </button>

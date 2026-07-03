@@ -26,7 +26,7 @@ export default function ProductNew() {
 
   return (
     <div>
-      <h1 className="font-display text-[32px] font-semibold text-ink">Thêm sản phẩm</h1>
+      <h1 className="font-display text-[28px] font-semibold text-ink sm:text-[32px]">Thêm sản phẩm</h1>
       <ProductForm onSubmit={handleSubmit} submitLabel="Tạo sản phẩm" />
     </div>
   )

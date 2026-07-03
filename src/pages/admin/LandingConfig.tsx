@@ -383,20 +383,20 @@ export default function LandingConfigPage() {
   }
 
   return (
-    <div className="max-w-6xl space-y-8 pb-12">
-      <div className="sticky top-0 z-10 -mx-2 flex flex-wrap items-center justify-between gap-4 bg-pearl/95 px-2 py-4 backdrop-blur">
-        <div>
-          <h1 className="font-display text-[32px] font-semibold text-ink">Quản trị Landing Page</h1>
+    <div className="max-w-6xl space-y-6 pb-12 sm:space-y-8">
+      <div className="sticky top-0 z-10 -mx-4 flex flex-col gap-4 bg-pearl/95 px-4 py-4 backdrop-blur sm:-mx-2 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:px-2">
+        <div className="min-w-0">
+          <h1 className="font-display text-[28px] font-semibold text-ink sm:text-[32px]">Quản trị Landing Page</h1>
           <p className="font-body text-[13px] text-ink-muted-48">
             Trạng thái: {config.status || 'published'} {config.updatedAt ? `- cập nhật ${new Date(config.updatedAt).toLocaleString('vi-VN')}` : ''}
           </p>
         </div>
-        <div className="flex gap-3">
+        <div className="grid w-full grid-cols-2 gap-3 sm:flex sm:w-auto">
           <button
             type="button"
             onClick={() => handleSave('draft')}
             disabled={saving !== null}
-            className="rounded-full border border-hairline px-5 py-2.5 font-body text-[14px] font-semibold text-ink disabled:opacity-50"
+            className="rounded-full border border-hairline px-4 py-2.5 font-body text-[14px] font-semibold text-ink disabled:opacity-50 sm:px-5"
           >
             {saving === 'draft' ? 'Đang lưu...' : 'Lưu nháp'}
           </button>
@@ -404,7 +404,7 @@ export default function LandingConfigPage() {
             type="button"
             onClick={() => handleSave('publish')}
             disabled={saving !== null}
-            className="rounded-full bg-action-blue px-5 py-2.5 font-body text-[14px] font-semibold text-white disabled:opacity-50"
+            className="rounded-full bg-action-blue px-4 py-2.5 font-body text-[14px] font-semibold text-white disabled:opacity-50 sm:px-5"
           >
             {saving === 'publish' ? 'Đang xuất bản...' : 'Xuất bản'}
           </button>
@@ -462,8 +462,8 @@ export default function LandingConfigPage() {
         ) : (
           <div className="space-y-2">
             {history.slice(0, 8).map((item) => (
-              <div key={item.id} className="flex items-center justify-between gap-3 rounded-[8px] border border-hairline bg-white p-3">
-                <span className="font-body text-[13px] text-ink">{item.id}</span>
+              <div key={item.id} className="flex flex-col gap-3 rounded-[8px] border border-hairline bg-white p-3 sm:flex-row sm:items-center sm:justify-between">
+                <span className="break-all font-body text-[13px] text-ink">{item.id}</span>
                 <button
                   type="button"
                   onClick={() => handleRollback(item.id)}
@@ -484,7 +484,7 @@ export default function LandingConfigPage() {
             const sectionKey = key as keyof NonNullable<LandingConfig['sections']>
             const section = config.sections?.[sectionKey] || { enabled: true, order: 1 }
             return (
-              <div key={key} className="grid grid-cols-[1fr_120px_80px] items-center gap-3 rounded-[8px] border border-hairline bg-white p-3">
+              <div key={key} className="grid grid-cols-1 items-center gap-3 rounded-[8px] border border-hairline bg-white p-3 sm:grid-cols-[1fr_120px]">
                 <ToggleField label={label} checked={section.enabled} onChange={(value) => updateSection(sectionKey, 'enabled', value)} />
                 <NumberField label="Thứ tự" value={section.order} onChange={(value) => updateSection(sectionKey, 'order', value)} />
               </div>
@@ -532,7 +532,7 @@ export default function LandingConfigPage() {
         <div className="space-y-4">
           {(config.categoryItems || []).map((item, index) => (
             <div key={item.id} className="rounded-[12px] border border-hairline bg-white p-4">
-              <div className="mb-3 flex items-center justify-between gap-3">
+              <div className="mb-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <ToggleField label={`Hiển thị mục ${index + 1}`} checked={item.enabled} onChange={(value) => updateCategoryItem(index, 'enabled', value)} />
                 <button type="button" onClick={() => removeCategoryItem(index)} className="rounded-full border border-red-200 px-3 py-1 text-[12px] text-red-600">Xóa</button>
               </div>
@@ -572,7 +572,7 @@ export default function LandingConfigPage() {
         <div className="mt-4 space-y-4">
           {config.commitments.map((item, index) => (
             <div key={index} className="rounded-[12px] border border-hairline bg-white p-4">
-              <div className="mb-3 flex items-center justify-between">
+              <div className="mb-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <ToggleField label={`Hiển thị cam kết ${index + 1}`} checked={item.enabled ?? true} onChange={(value) => updateCommitment(index, 'enabled', value)} />
                 <button type="button" onClick={() => removeCommitment(index)} className="rounded-full border border-red-200 px-3 py-1 text-[12px] text-red-600">Xóa</button>
               </div>
@@ -644,8 +644,8 @@ export default function LandingConfigPage() {
 
 function AdminPanel({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <section className="rounded-[18px] border border-hairline bg-canvas p-6">
-      <h2 className="mb-5 border-b border-hairline pb-2 font-display text-[22px] font-semibold text-ink">{title}</h2>
+    <section className="rounded-[18px] border border-hairline bg-canvas p-4 sm:p-6">
+      <h2 className="mb-5 border-b border-hairline pb-2 font-display text-[20px] font-semibold text-ink sm:text-[22px]">{title}</h2>
       {children}
     </section>
   )
@@ -694,9 +694,9 @@ function TextAreaField({ label, value, onChange }: { label: string; value: strin
 
 function ToggleField({ label, checked, onChange }: { label: string; checked: boolean; onChange: (value: boolean) => void }) {
   return (
-    <label className="flex items-center gap-2 font-body text-[14px] text-ink">
+    <label className="flex min-w-0 items-center gap-2 font-body text-[14px] text-ink">
       <input type="checkbox" checked={checked} onChange={(event) => onChange(event.target.checked)} />
-      {label}
+      <span className="min-w-0 break-words">{label}</span>
     </label>
   )
 }
@@ -758,7 +758,7 @@ function ImageField({
           if (file) onUpload(file)
           event.target.value = ''
         }}
-        className="font-body text-[12px]"
+        className="max-w-full font-body text-[12px]"
       />
       {uploading && <p className="font-body text-[12px] text-ink-muted-48">Đang upload...</p>}
     </div>

@@ -89,7 +89,7 @@ export default function ProductForm({ initial, onSubmit, submitLabel }: ProductF
   }
 
   return (
-    <form onSubmit={handleSubmit} className="mt-8 max-w-2xl space-y-5">
+    <form onSubmit={handleSubmit} className="mt-6 max-w-2xl space-y-5 sm:mt-8">
       <div>
         <label htmlFor="name" className="font-body text-[14px] text-ink-muted-48">Tên sản phẩm</label>
         <input
@@ -177,12 +177,12 @@ export default function ProductForm({ initial, onSubmit, submitLabel }: ProductF
           accept="image/*"
           onChange={handleImageUpload}
           disabled={uploading}
-          className="mt-3 font-body text-[14px]"
+          className="mt-3 max-w-full font-body text-[14px]"
         />
         {uploading && <p className="mt-1 font-body text-[12px] text-ink-muted-48">Đang upload...</p>}
       </div>
 
-      <div className="flex gap-6">
+      <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-x-6">
         <label className="flex items-center gap-2 font-body text-[14px] text-ink cursor-pointer">
           <input
             type="checkbox"
@@ -212,7 +212,7 @@ export default function ProductForm({ initial, onSubmit, submitLabel }: ProductF
       <button
         type="submit"
         disabled={loading}
-        className="rounded-full bg-action-blue px-6 py-3 font-body text-[17px] text-white transition-transform active:scale-95 disabled:opacity-50"
+        className="w-full rounded-full bg-action-blue px-6 py-3 font-body text-[17px] text-white transition-transform active:scale-95 disabled:opacity-50 sm:w-auto"
       >
         {loading ? 'Đang lưu...' : submitLabel}
       </button>

@@ -25,9 +25,9 @@ export default function Login() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-parchment px-5">
-      <div className="w-full max-w-md rounded-[18px] border border-hairline bg-canvas p-8">
-        <h1 className="font-display text-[32px] font-semibold text-ink">Đăng nhập Admin</h1>
+    <div className="flex min-h-screen items-center justify-center bg-parchment px-4 py-8 sm:px-5">
+      <div className="w-full max-w-md rounded-[18px] border border-hairline bg-canvas p-6 sm:p-8">
+        <h1 className="font-display text-[28px] font-semibold text-ink sm:text-[32px]">Đăng nhập Admin</h1>
         <p className="mt-2 font-body text-[14px] text-ink-muted-48">Tiệm Bạc Ánh Xuân</p>
 
         <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-4">
